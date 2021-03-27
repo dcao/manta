@@ -1,10 +1,22 @@
-use rayon::prelude::*;
-use std::env;
+use std::{env, fs};
+
+mod parse;
+
+const VERSION: &'static str = "manta 0.1.0";
 
 fn main() {
     let args: Vec<String> = env::args().collect();
-    let vec: &[i32] = &[1, 2, 4, 6, 10];
-    let res: i32 = vec.par_iter().map(|&i| i * i).sum();
 
-    println!("{} {:#?}", res, args);
+    if args.len() <= 1 {
+        // TODO: repl mode
+        // rustyline or linefeed
+        todo!();
+    } else if &args[1] == "-V" {
+        println!("{}", VERSION);
+    } else {
+        let contents = fs::read_to_string(&args[1])
+            .expect("!file");
+
+        println!("text:\n{}", contents);
+    }
 }

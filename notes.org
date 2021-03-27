@@ -1,0 +1,6 @@
+#+title: manta notes
+* Resources
+- https://mathspp.com/blog/lsbasi-apl-part1
+- https://github.com/robpike/ivy/blob/master/value/char.go
+- https://github.com/fitzgen/bumpalo
+- https://hg.sr.ht/~icefox/garnet

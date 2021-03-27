@@ -3,14 +3,27 @@ name = "manta-rs"
 version = "0.1.0"
 authors = ["David Cao <david@cao.sh>"]
 edition = "2018"
+build = "build.rs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+lalrpop-util = "0.19"
+lasso = "0.5"
+logos = "0.12"
+quickscope = "0.1"
 rayon = "1.5"
+simdeez = "1"
+
+[build-dependencies]
+lalrpop = "0.19"
 
 [profile.release]
 # opt-level = 'z'  # Optimize for size.
 lto = true
 # codegen-units = 1
 panic = 'abort'
+
+[[bin]]
+name = "mt"
+path = "src/main.rs"

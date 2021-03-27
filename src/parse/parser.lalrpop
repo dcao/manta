@@ -1,0 +1,26 @@
+use super::{ast::*, lex};
+
+grammar;
+
+pub Symbol: Symbol = ident => "todo";
+
+extern {
+    type Location = usize;
+    type Error = ();
+
+    enum lex::Token {
+         ident => lex::Token::Ident,
+         int => lex::Token::Integer,
+         float => lex::Token::Float,
+
+         "+" => lex::Token::Plus,
+         "-" => lex::Token::Minus,
+         "*" => lex::Token::Times,
+         "%" => lex::Token::Divide,
+
+         "(" => lex::Token::LParen,
+         ")" => lex::Token::RParen,
+         "[" => lex::Token::LBrack,
+         "]" => lex::Token::RBrack,
+    }
+}
