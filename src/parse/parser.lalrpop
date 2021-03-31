@@ -1,17 +1,35 @@
-use super::{ast::*, lex};
+use super::{ast::*, context::Context, lex};
 
-grammar;
+grammar<'input>(ctx: &mut Context);
 
-pub Symbol: Symbol = ident => "todo";
+pub Expr: Box<Expr<'input>> = {
+    <e1: Expr2> <o: Builtin> <e2: Expr> => Box::new(Expr::Dyad(o, e1, e2)),
+    <o: Builtin> <e: Expr> => Box::new(Expr::Monad(o, e)),
+    Expr2,
+};
+
+Expr2: Box<Expr<'input>> = {
+    "(" <Expr> ")" => <>,
+    Array,
+};
+
+pub Array: Box<Expr<'input>> = int => Box::new(Expr::Array(<>));
+
+pub Builtin: Builtin = {
+    "+" => Builtin::Plus,
+    "-" => Builtin::Minus,
+    "*" => Builtin::Times,
+    "%" => Builtin::Divide,
+};
 
 extern {
     type Location = usize;
     type Error = ();
 
-    enum lex::Token {
-         ident => lex::Token::Ident,
-         int => lex::Token::Integer,
-         float => lex::Token::Float,
+    enum lex::Token<'input> {
+         ident => lex::Token::Ident(<&'input str>),
+         int => lex::Token::Integer(<i64>),
+         float => lex::Token::Float(<f64>),
 
          "+" => lex::Token::Plus,
          "-" => lex::Token::Minus,

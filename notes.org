@@ -4,3 +4,8 @@
 - https://github.com/robpike/ivy/blob/master/value/char.go
 - https://github.com/fitzgen/bumpalo
 - https://hg.sr.ht/~icefox/garnet
+- https://git.sr.ht/~jamii/imp/tree/master/item/lib/imp/lang/pass/parse.zig
+- https://github.com/ezrosent/frawk
+  - compile to cranelift jit?
+- https://github.com/lokedhs/array/blob/master/array/src/commonMain/kotlin/array/builtins/math_functions.kt
+- for lexing comments etc: https://gitlab.com/matthewess/pig/-/blob/main/pig-surface/src/lex.rs

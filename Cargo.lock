@@ -92,6 +92,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "bumpalo"
+version = "3.6.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "63396b8a4b9de3f4fdfb320ab6080762242f66a8ef174c49d8e19b674db4cdbe"
+
+[[package]]
 name = "byteorder"
 version = "1.4.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -348,6 +354,7 @@ dependencies = [
 name = "manta-rs"
 version = "0.1.0"
 dependencies = [
+ "bumpalo",
  "lalrpop",
  "lalrpop-util",
  "lasso",

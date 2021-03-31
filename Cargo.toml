@@ -8,6 +8,7 @@ build = "build.rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+bumpalo = { version = "*", features = ["boxed"] }
 lalrpop-util = "0.19"
 lasso = "0.5"
 logos = "0.12"

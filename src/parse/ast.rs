@@ -1,14 +1,18 @@
-pub type Symbol = &'static str;
+// use crate::repr::*;
 
-#[derive(Debug)]
+pub type Symbol<'a> = &'a str;
+
+#[derive(Debug, Clone)]
 pub enum Expr<'a> {
-    Assign(Symbol, &'a Expr<'a>),
-    Monad(Builtin, &'a Expr<'a>),
-    Dyad(Builtin, &'a Expr<'a>, &'a Expr<'a>),
-    App(Symbol, &'a [&'a Expr<'a>]),
+    Assign(Symbol<'a>, Box<Expr<'a>>),
+    Monad(Builtin, Box<Expr<'a>>),
+    Dyad(Builtin, Box<Expr<'a>>, Box<Expr<'a>>),
+    App(Symbol<'a>, Box<[Expr<'a>]>),
+    // TODO
+    Array(i64),
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 pub enum Builtin {
     Plus,
     Minus,
