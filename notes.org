@@ -7,5 +7,6 @@
 - https://git.sr.ht/~jamii/imp/tree/master/item/lib/imp/lang/pass/parse.zig
 - https://github.com/ezrosent/frawk
   - compile to cranelift jit?
+  - compile functions in parallel, a la wasmer, to mitigate compilation cost: https://github.com/wasmerio/wasmer/blob/af59fcbf221c1792da41c2f0946f6e42b7bda817/lib/compiler-cranelift/src/compiler.rs
 - https://github.com/lokedhs/array/blob/master/array/src/commonMain/kotlin/array/builtins/math_functions.kt
 - for lexing comments etc: https://gitlab.com/matthewess/pig/-/blob/main/pig-surface/src/lex.rs
